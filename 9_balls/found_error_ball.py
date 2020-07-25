@@ -82,12 +82,12 @@ else:
 
 
 # Display error :
-print("\nThe number of the different ball is : ", error_ball, ".")
+print(f"\nThe number of the different ball is : {error_ball}.")
 
 
 print("\nLet's check the weight of each ball :\n")
 for i in range(9):
-	print(i+1, " : ", all_balls[i], "g.")
+	print(f"Ball n°{i+1} : {all_balls[i]} g.")
 
 print("\n")
 
