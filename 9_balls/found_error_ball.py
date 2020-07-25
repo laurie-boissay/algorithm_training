@@ -82,7 +82,7 @@ else:
 
 
 # Display error :
-print("\nThe number of the different ball is : ", error_ball)
+print("\nThe number of the different ball is : ", error_ball, ".")
 
 
 print("\nLet's check the weight of each ball :\n")
