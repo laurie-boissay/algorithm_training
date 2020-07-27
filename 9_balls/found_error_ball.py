@@ -34,52 +34,49 @@ group_3.append(all_balls[6])
 group_3.append(all_balls[7])
 group_3.append(all_balls[8])
 
-
-def weigh_balls(group):
-	# Weigh 2 balls 0 and 1:
-	# if weight ball 0 > weight ball 1:
-	if group[0] > group[1]:
-		# error = ball 0
-		error = 0
-
-	# if weight ball 0 == weight ball 1:
-	elif group[0] < group[1]:
-		# error = ball 1
-		error = 1
-	
-	else: #group[0] == group[1]
-		# error = ball 2
-		error = 2
-
-	return error + 1
-
-
 # Weigh group 1.
 weight_group_1 = group_1[0] + group_1[1] + group_1[2]
 
 # Weigh group 2.
 weight_group_2 = group_2[0] + group_2[1] + group_2[2]
 
-# else if (weight group 1 > weight group 2):
-if weight_group_1 > weight_group_2:
-		# the error is in the group 1.
-		# weigh 2 balls in group 1:
-		error_ball = weigh_balls(group_1)
+# We need a list to give as argument to the following function.
+groups_to_compare = [weight_group_1, weight_group_2]
 
-# else (weight group 1 < weight group 2):
-elif weight_group_1 < weight_group_2:
-		# the error is in the group 2.
-		# weigh 2 balls in group 2:
-		error_ball = weigh_balls(group_2) + 3
 
-else: # weight_group_1 == weight_group_2
-	# the error is in the group 3.
-	# weigh 2 balls in group 3:
-	error_ball = weigh_balls(group_3) + 6
+def comparative_weighings(object_list_to_compare):
+	# Compare 2 objects 0 and 1:
+	# if weight object 0 > weight object 1:
+	if object_list_to_compare[0] > object_list_to_compare[1]:
+		# error = object 0
+		error = 0
+
+	# if weight object 0 == weight object 1:
+	elif object_list_to_compare[0] < object_list_to_compare[1]:
+		# error = object 1
+		error = 1
+	
+	else: #object_list_to_compare[0] == object_list_to_compare[1]
+		# error = object 2
+		error = 2
+
+	return error + 1
+
+
+error_group_number = comparative_weighings(groups_to_compare)
+
+if error_group_number == 1:
+	error_ball = comparative_weighings(group_1)
+
+elif error_group_number == 2:
+	error_ball = comparative_weighings(group_2) + 3
+
+else: # error_group_number == 3:
+	error_ball = comparative_weighings(group_3) + 6
 
 
 # Display error :
-print(f"\nThe number of the different ball is : {error_ball}.")
+print(f"\nThe number of the heaviest ball is : {error_ball}.")
 
 print("\nLet's check the weight of each ball :\n")
 for i in range(9):
